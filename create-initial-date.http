@@ -1,0 +1,44 @@
+### Создать вопрос 1
+POST http://localhost:8080/exam/java/add
+Content-Type: application/json
+
+{
+  "question": "Вопрос 1",
+  "lastName": "Ответ 1"
+}
+
+### Создать вопрос 2
+POST http://localhost:8080/exam/java/add
+Content-Type: application/json
+
+{
+  "question": "Вопрос 2",
+  "lastName": "Ответ 2"
+}
+
+### Создать вопрос 3
+POST http://localhost:8080/exam/java/add
+Content-Type: application/json
+
+{
+  "question": "Вопрос 3",
+  "lastName": "Ответ 3"
+}
+
+### Создать вопрос 4
+POST http://localhost:8080/exam/java/add
+Content-Type: application/json
+
+{
+  "question": "Вопрос 4",
+  "lastName": "Ответ 4"
+}
+
+### Создать вопрос 5
+POST http://localhost:8080/exam/java/add
+Content-Type: application/json
+
+{
+  "question": "Вопрос 5",
+  "lastName": "Ответ 5"
+}
