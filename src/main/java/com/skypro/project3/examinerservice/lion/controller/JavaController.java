@@ -1,6 +1,7 @@
 package com.skypro.project3.examinerservice.lion.controller;
 
 import com.skypro.project3.examinerservice.lion.Question;
+import com.skypro.project3.examinerservice.lion.service.JavaQuestionService;
 import com.skypro.project3.examinerservice.lion.service.QuestionException;
 import com.skypro.project3.examinerservice.lion.service.QuestionService;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,23 +17,28 @@ import java.util.Collection;
 @RestController
 public class JavaController {
 
-    private final QuestionService service;
+//    private final QuestionService service;
+//    public JavaController(QuestionService service) {
+//        this.service = service;
+//    }
 
-    public JavaController(QuestionService service) {
-        this.service = service;
+    private final JavaQuestionService javaQuestionService;
+
+    public JavaController(JavaQuestionService javaQuestionService) {
+        this.javaQuestionService = javaQuestionService;
     }
 
-    @PostMapping("/exam/java/add")
-    public ResponseEntity<Question> addQuestion(String question, String answer) throws QuestionException {
-        this.service.add(question, answer);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-    @PostMapping("/exam/java/add")
-    public ResponseEntity<Question> addQuestion(Question question) throws QuestionException {
-        this.service.add(question);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
+//    @PostMapping("/exam/java/add")
+//    public ResponseEntity<Question> addQuestion(String question, String answer) throws QuestionException {
+//        this.service.add(question, answer);
+//        return new ResponseEntity<>(HttpStatus.OK);
+//    }
+//
+//    @PostMapping("/exam/java/add")
+//    public ResponseEntity<Question> addQuestion(Question question) throws QuestionException {
+//        this.service.add(question);
+//        return new ResponseEntity<>(HttpStatus.OK);
+//    }
 
 //    @PostMapping("/exam/java/remove")
 //    public ResponseEntity<Question> removeQuestion(String question, String answer) {
@@ -40,16 +46,16 @@ public class JavaController {
 //        return new ResponseEntity<>(HttpStatus.OK);
 //    }
 
-    @DeleteMapping("/exam/java/remove")
-    public ResponseEntity<Question> removeQuestion(Question question) {
-        this.service.remove(question);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-    @GetMapping("/exam/java")
-    public ResponseEntity<Collection<Question>> getQuestions() {
-        return new ResponseEntity<>(this.service.getAll(), HttpStatus.OK);
-    }
+//    @DeleteMapping("/exam/java/remove")
+//    public ResponseEntity<Question> removeQuestion(Question question) {
+//        this.service.remove(question);
+//        return new ResponseEntity<>(HttpStatus.OK);
+//    }
+//
+//    @GetMapping("/exam/java")
+//    public ResponseEntity<Collection<Question>> getQuestions() {
+//        return new ResponseEntity<>(this.service.getAll(), HttpStatus.OK);
+//    }
 
 //    Пользователь обращается к некому эндпоинту по адресу (”/exam/get/{amount}”)
 //    Пользователь получает ответ в виде списка случайных вопросов-ответов,
