@@ -13,7 +13,7 @@ import java.util.Set;
 //   который в качестве параметра принимает максимальное число,
 //   а затем возвращает вам результат в виде случайного числа от 0 до максимального числа из параметров (не включительно).
 
-//@Service
+@Service
 public class JavaQuestionService implements QuestionService{
 
     private final Set<Question> questions = new HashSet<>();

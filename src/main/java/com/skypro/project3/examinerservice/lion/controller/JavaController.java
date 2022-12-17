@@ -3,10 +3,14 @@ package com.skypro.project3.examinerservice.lion.controller;
 import com.skypro.project3.examinerservice.lion.Question;
 import com.skypro.project3.examinerservice.lion.service.QuestionException;
 import com.skypro.project3.examinerservice.lion.service.QuestionService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 
 @RestController
@@ -36,7 +40,7 @@ public class JavaController {
 //        return new ResponseEntity<>(HttpStatus.OK);
 //    }
 
-    @PostMapping("/exam/java/remove")
+    @DeleteMapping("/exam/java/remove")
     public ResponseEntity<Question> removeQuestion(Question question) {
         this.service.remove(question);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -58,6 +62,4 @@ public class JavaController {
 //    Добавить: “/exam/java/add?question=QuestionText&answer=QuestionAnswer”
 //    Удалить: “/exam/java/remove?question=QuestionText&answer=QuestionAnswer”
 //    Получить все вопросы: “/exam/java”
-
-
 }
