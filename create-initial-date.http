@@ -1,44 +1,15 @@
 ### Создать вопрос 1
-POST http://localhost:8080/exam/java/add
-Content-Type: application/json
-
-{
-  "question": "Вопрос 1",
-  "lastName": "Ответ 1"
-}
-
+GET http://localhost:8080/exam/java/add?question=Вопрос1&answer=Ответ1
 ### Создать вопрос 2
-POST http://localhost:8080/exam/java/add
-Content-Type: application/json
-
-{
-  "question": "Вопрос 2",
-  "lastName": "Ответ 2"
-}
-
+GET http://localhost:8080/exam/java/add?question=Вопрос2&answer=Ответ2
 ### Создать вопрос 3
-POST http://localhost:8080/exam/java/add
-Content-Type: application/json
-
-{
-  "question": "Вопрос 3",
-  "lastName": "Ответ 3"
-}
-
+GET http://localhost:8080/exam/java/add?question=Вопрос3&answer=Ответ3
 ### Создать вопрос 4
-POST http://localhost:8080/exam/java/add
-Content-Type: application/json
-
-{
-  "question": "Вопрос 4",
-  "lastName": "Ответ 4"
-}
-
+GET http://localhost:8080/exam/java/add?question=Вопрос4&answer=Ответ4
 ### Создать вопрос 5
-POST http://localhost:8080/exam/java/add
-Content-Type: application/json
+GET http://localhost:8080/exam/java/add?question=Вопрос5&answer=Ответ5
+### Создать некорректный вопрос
+GET http://localhost:8080/exam/java/add?question=&answer=
 
-{
-  "question": "Вопрос 5",
-  "lastName": "Ответ 5"
-}
+### Получить все вопросы
+GET http://localhost:8080/exam/java

@@ -1,4 +1,4 @@
-package com.skypro.project3.examinerservice.lion;
+package com.skypro.project3.examinerservice.lion.model;
 
 import java.util.Objects;
 

@@ -8,21 +8,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
-//   Реализовать сервис JavaQuestionService, который будет реализовывать QuestionService
-//   и хранить в себе список вопросов по Java, а также осуществлять всю работу с этим списком.
-//   Реализация метода getRandomQuestion осуществляется с помощью класса Random и его метода nextInt,
-//   который в качестве параметра принимает максимальное число,
-//   а затем возвращает вам результат в виде случайного числа от 0 до максимального числа из параметров (не включительно).
-
 @Service
-public class JavaQuestionService implements QuestionService {
-
+public class MathQuestionService implements QuestionService {
     private final QuestionRepository questionRepository;
     // Здесь вместо поля Репозиторий может сразу быть Мапа или список, которые хранят вопросы.
 
     private final UtilService utilService;
 
-    public JavaQuestionService(@Qualifier("javaQuestionRepository") QuestionRepository questionRepository,
+    public MathQuestionService(@Qualifier("mathQuestionRepository") QuestionRepository questionRepository,
                                UtilService utilService) {
         this.questionRepository = questionRepository;
         this.utilService = utilService;
@@ -40,9 +33,6 @@ public class JavaQuestionService implements QuestionService {
         }
 
         return questionRepository.add(new Question(question, answer));
-//        Question questionTmpr = new Question(question, answer);
-//        this.questions.add(questionTmpr);
-//        return questionTmpr;
     }
 
     @Override
@@ -55,9 +45,6 @@ public class JavaQuestionService implements QuestionService {
             throw new BadRequestException("Заполните поля 'Вопрос' и 'Ответ'.");
         }
         return questionRepository.add(question);
-//        Question questionTmpr = new Question(question.getQuestion(), question.getAnswer());
-//        this.questions.add(questionTmpr);
-//        return questionTmpr;
     }
 
     @Override
@@ -74,6 +61,7 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
     public Question getRandomQuestion() {
+
         return utilService.getRandomQuestion(questionRepository.getAll());
     }
 }
