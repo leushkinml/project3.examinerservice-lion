@@ -20,11 +20,14 @@ import java.util.*;
 public class ExaminerServiceImpl implements ExaminerService {
 
    private final List<QuestionService> questionServices;
-   // List используется, чтоы получать вопросы из обоих сервисов в методе getQuestions ниже
+    // List используется, чтоы получать вопросы из обоих сервисов в методе getQuestions ниже
     // Метод сам выберет, из какого сервиса получать вопросы. Здесь @Qualifier не нужен
 
-    public ExaminerServiceImpl(List<QuestionService> questionServices) {
+    private final UtilService utilService;
+
+    public ExaminerServiceImpl(List<QuestionService> questionServices, UtilService utilService) {
         this.questionServices = questionServices;
+        this.utilService = utilService;
     }
 
 //     Random random;
