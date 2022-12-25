@@ -1,5 +1,6 @@
 package com.skypro.project3.examinerservice.lion.service;
 
+import com.skypro.project3.examinerservice.lion.exception.BadRequestException;
 import com.skypro.project3.examinerservice.lion.model.Question;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -53,6 +54,14 @@ class ExaminerServiceImplTest {
     }
 
 //    @Test
-//    void getQuestions() {
+//    void getQuestionsWithIncorrectAmount() {
+//        Mockito.when(questionService.getAll()).thenReturn(Set.of(new Question("Question", "Answer")));
+//        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
+//            out.getQuestions(5);
+//        });
+//
+//        Mockito.verify(questionService, Mockito.times(1)).getAll();
+//        Mockito.verify(questionService, Mockito.never()).getRandomQuestion();
+//        Mockito.verify(utilService, Mockito.never()).getRandomInt(anyInt());
 //    }
 }
