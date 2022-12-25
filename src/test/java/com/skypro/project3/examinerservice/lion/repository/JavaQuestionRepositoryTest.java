@@ -40,12 +40,15 @@ class JavaQuestionRepositoryTest {
     }
 
 
-//    @Test
-//    void addNullQuestion() {
+    @Test
+    void addNullQuestion() {
+        Assertions.assertThrows(BadRequestException.class, () -> {
+            out.add(null);
+        });
 //        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
 //            out.add(null);
 //        });
-//    }
+    }
 
     @Test
     void removeExistingQuestion() {
@@ -57,12 +60,15 @@ class JavaQuestionRepositoryTest {
 
     }
 
-//    @Test
-//    void removeNotExistingQuestion() {
+    @Test
+    void removeNotExistingQuestion() {
+        Assertions.assertThrows(NotFoundQuestionException.class, () -> {
+            out.remove(null);
+        });
 //        Assertions.assertThatExceptionOfType(NotFoundQuestionException.class).isThrownBy(() -> {
 //            out.remove(null);
 //        });
-//    }
+    }
 
     @Test
     void getAll() {

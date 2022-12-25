@@ -1,5 +1,6 @@
 package com.skypro.project3.examinerservice.lion.service;
 
+import com.skypro.project3.examinerservice.lion.exception.BadRequestException;
 import com.skypro.project3.examinerservice.lion.model.Question;
 import com.skypro.project3.examinerservice.lion.repository.QuestionRepository;
 import org.junit.jupiter.api.Assertions;
@@ -53,37 +54,49 @@ class MathQuestionServiceTest {
         Mockito.verify(questionRepository, Mockito.only()).add(expected);
     }
 
-//    @Test
-//    void addWithNullQuestion() {
+        @Test
+    void addWithNullQuestion() {
+        Assertions.assertThrows(BadRequestException.class, () -> {
+            out.add(null, "Answer");
+        });
 //        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
 //            out.add(null, "Answer");
 //        });
-//        Mockito.verify(questionRepository, Mockito.never()).add(any());
-//    }
-//
-//    @Test
-//    void addWithNullAnswer() {
+        Mockito.verify(questionRepository, Mockito.never()).add(any());
+    }
+
+    @Test
+    void addWithNullAnswer() {
+        Assertions.assertThrows(BadRequestException.class, () -> {
+            out.add("Question", null);
+        });
 //        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
 //            out.add("Question", null);
 //        });
-//        Mockito.verify(questionRepository, Mockito.never()).add(any());
-//    }
-//
-//    @Test
-//    void addWithBlankQuestion() {
+        Mockito.verify(questionRepository, Mockito.never()).add(any());
+    }
+
+    @Test
+    void addWithBlankQuestion() {
+        Assertions.assertThrows(BadRequestException.class, () -> {
+            out.add("", "Answer");
+        });
 //        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
 //            out.add("", "Answer");
 //        });
-//        Mockito.verify(questionRepository, Mockito.never()).add(any());
-//    }
-//
-//    @Test
-//    void addWithBlankAnswer() {
+        Mockito.verify(questionRepository, Mockito.never()).add(any());
+    }
+
+    @Test
+    void addWithBlankAnswer() {
+        Assertions.assertThrows(BadRequestException.class, () -> {
+            out.add("Question", "");
+        });
 //        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
 //            out.add("Question", "");
 //        });
-//        Mockito.verify(questionRepository, Mockito.never()).add(any());
-//    }
+        Mockito.verify(questionRepository, Mockito.never()).add(any());
+    }
 
     @Test
     void removeQuestion() {

@@ -1,5 +1,7 @@
 package com.skypro.project3.examinerservice.lion.repository;
 
+import com.skypro.project3.examinerservice.lion.exception.BadRequestException;
+import com.skypro.project3.examinerservice.lion.exception.NotFoundQuestionException;
 import com.skypro.project3.examinerservice.lion.model.Question;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -38,12 +40,15 @@ class MathQuestionRepositoryTest {
     }
 
 
-//    @Test
-//    void addNullQuestion() {
+    @Test
+    void addNullQuestion() {
+        Assertions.assertThrows(BadRequestException.class, () -> {
+            out.add(null);
+        });
 //        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
 //            out.add(null);
 //        });
-//    }
+    }
 
     @Test
     void removeExistingQuestion() {
@@ -55,12 +60,15 @@ class MathQuestionRepositoryTest {
 
     }
 
-//    @Test
-//    void removeNotExistingQuestion() {
+    @Test
+    void removeNotExistingQuestion() {
+        Assertions.assertThrows(NotFoundQuestionException.class, () -> {
+            out.remove(null);
+        });
 //        Assertions.assertThatExceptionOfType(NotFoundQuestionException.class).isThrownBy(() -> {
 //            out.remove(null);
 //        });
-//    }
+    }
 
     @Test
     void getAll() {
