@@ -15,10 +15,14 @@ public class UtilService {
 
     //@Autowired
     public void setRandom(Random random) {
-        this.random = random;
+        UtilService.random = random;
     }
 
+//    public void setRandom(Random random) {
+//        this.random = random;
+//    }
     public static int getRandomInt(int bound) {
+
         return random.nextInt(bound);
     }
 
