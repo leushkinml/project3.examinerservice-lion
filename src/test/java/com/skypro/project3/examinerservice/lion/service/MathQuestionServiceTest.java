@@ -15,7 +15,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Collection;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 
 @ExtendWith(MockitoExtension.class)
@@ -54,14 +53,11 @@ class MathQuestionServiceTest {
         Mockito.verify(questionRepository, Mockito.only()).add(expected);
     }
 
-        @Test
+    @Test
     void addWithNullQuestion() {
         Assertions.assertThrows(BadRequestException.class, () -> {
             out.add(null, "Answer");
         });
-//        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
-//            out.add(null, "Answer");
-//        });
         Mockito.verify(questionRepository, Mockito.never()).add(any());
     }
 
@@ -70,9 +66,6 @@ class MathQuestionServiceTest {
         Assertions.assertThrows(BadRequestException.class, () -> {
             out.add("Question", null);
         });
-//        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
-//            out.add("Question", null);
-//        });
         Mockito.verify(questionRepository, Mockito.never()).add(any());
     }
 
@@ -81,9 +74,6 @@ class MathQuestionServiceTest {
         Assertions.assertThrows(BadRequestException.class, () -> {
             out.add("", "Answer");
         });
-//        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
-//            out.add("", "Answer");
-//        });
         Mockito.verify(questionRepository, Mockito.never()).add(any());
     }
 
@@ -92,9 +82,6 @@ class MathQuestionServiceTest {
         Assertions.assertThrows(BadRequestException.class, () -> {
             out.add("Question", "");
         });
-//        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
-//            out.add("Question", "");
-//        });
         Mockito.verify(questionRepository, Mockito.never()).add(any());
     }
 
@@ -105,8 +92,6 @@ class MathQuestionServiceTest {
         Question actual = out.remove(expected);
         Assertions.assertEquals(actual, expected);
         Mockito.verify(questionRepository, Mockito.only()).remove(expected);
-//        System.out.println(actual);
-//        System.out.println(expected);
     }
 
     @Test
@@ -116,8 +101,6 @@ class MathQuestionServiceTest {
         Collection<Question> actual = out.getAll();
         Assertions.assertEquals(actual, expected);
         Mockito.verify(questionRepository, Mockito.only()).getAll();
-//        System.out.println(actual);
-//        System.out.println(expected);
     }
 
     @Test
@@ -130,7 +113,5 @@ class MathQuestionServiceTest {
         Assertions.assertEquals(actual, expected);
         Mockito.verify(questionRepository, Mockito.only()).getAll();
         Mockito.verify(utilService, Mockito.only()).getRandomQuestion(expectedList);
-//        System.out.println(actual);
-//        System.out.println(expected);
     }
 }

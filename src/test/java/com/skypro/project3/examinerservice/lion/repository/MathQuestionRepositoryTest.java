@@ -39,15 +39,11 @@ class MathQuestionRepositoryTest {
         Assertions.assertEquals(out.getAll().size(), 3);
     }
 
-
     @Test
     void addNullQuestion() {
         Assertions.assertThrows(BadRequestException.class, () -> {
             out.add(null);
         });
-//        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
-//            out.add(null);
-//        });
     }
 
     @Test
@@ -57,7 +53,6 @@ class MathQuestionRepositoryTest {
         Assertions.assertEquals(expected, actual);
         System.out.println(out.getAll());
         Assertions.assertEquals(out.getAll().size(), 2);
-
     }
 
     @Test
@@ -65,9 +60,6 @@ class MathQuestionRepositoryTest {
         Assertions.assertThrows(NotFoundQuestionException.class, () -> {
             out.remove(null);
         });
-//        Assertions.assertThatExceptionOfType(NotFoundQuestionException.class).isThrownBy(() -> {
-//            out.remove(null);
-//        });
     }
 
     @Test

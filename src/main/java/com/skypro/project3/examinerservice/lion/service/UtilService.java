@@ -1,30 +1,30 @@
 package com.skypro.project3.examinerservice.lion.service;
 
 import com.skypro.project3.examinerservice.lion.model.Question;
-import com.skypro.project3.examinerservice.lion.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Random;
 
 @Service
 public class UtilService {
     private static Random random;
 
-    //@Autowired
+    // @Autowired
     public void setRandom(Random random) {
         UtilService.random = random;
     }
 
-//    public void setRandom(Random random) {
-//        this.random = random;
-//    }
-    public static int getRandomInt(int bound) {
 
+    public static int getRandomInt(int bound) {
         return random.nextInt(bound);
     }
+//    public static int getRandomInt(int bound) {
+//        int randomInt;
+//        return randomInt = random.nextInt(bound);
+//    }
+
 
     public Question getRandomQuestion(Collection<Question> questions) {
         int questionNum = getRandomInt(questions.size());

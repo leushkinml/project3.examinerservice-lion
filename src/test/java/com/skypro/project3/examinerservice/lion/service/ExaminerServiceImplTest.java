@@ -45,23 +45,26 @@ class ExaminerServiceImplTest {
         Mockito.when(questionService.getAll()).thenReturn(expectedList);
 
         Collection<Question> actualList = out.getQuestions(1);
-        // Assertions.assertT(actualList).isEqualTo(expectedList);
         Assertions.assertEquals(actualList, expectedList);
 
         Mockito.verify(questionService, Mockito.times(1)).getAll();
         Mockito.verify(questionService, Mockito.times(1)).getRandomQuestion();
-        Mockito.verify(utilService, Mockito.times(1)).getRandomInt(anyInt());
+        Mockito.verify(utilService, Mockito.times(1));
+        UtilService.getRandomInt(anyInt());
+        //Mockito.verify(utilService, Mockito.times(1)).getRandomInt(anyInt());
     }
 
-//    @Test
-//    void getQuestionsWithIncorrectAmount() {
-//        Mockito.when(questionService.getAll()).thenReturn(Set.of(new Question("Question", "Answer")));
-//        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
-//            out.getQuestions(5);
-//        });
-//
-//        Mockito.verify(questionService, Mockito.times(1)).getAll();
-//        Mockito.verify(questionService, Mockito.never()).getRandomQuestion();
-//        Mockito.verify(utilService, Mockito.never()).getRandomInt(anyInt());
-//    }
+    @Test
+    void getQuestionsWithIncorrectAmount() {
+        Mockito.when(questionService.getAll()).thenReturn(Set.of(new Question("Question", "Answer")));
+        Assertions.assertThrows(BadRequestException.class, () -> {
+            out.getQuestions(5);
+        });
+
+        Mockito.verify(questionService, Mockito.times(1)).getAll();
+        Mockito.verify(questionService, Mockito.never()).getRandomQuestion();
+        Mockito.verify(utilService, Mockito.never());
+        UtilService.getRandomInt(anyInt());
+        //Mockito.verify(utilService, Mockito.never()).getRandomInt(anyInt());
+    }
 }

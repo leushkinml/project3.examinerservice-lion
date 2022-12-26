@@ -15,8 +15,6 @@ public interface QuestionService {
 
     Question remove(Question question);
 
-    // void remove(String question, String answer);
-
     Collection<Question> getAll();
 
     Question getRandomQuestion();

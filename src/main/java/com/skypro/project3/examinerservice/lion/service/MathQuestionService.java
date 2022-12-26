@@ -10,8 +10,8 @@ import java.util.Collection;
 
 @Service
 public class MathQuestionService implements QuestionService {
-    private final QuestionRepository questionRepository;
-    // Здесь вместо поля Репозиторий может сразу быть Мапа или список, которые хранят вопросы.
+    private final QuestionRepository questionRepository;    // Здесь вместо поля Репозиторий может сразу быть Мапа или список, которые хранят вопросы.
+
 
     private final UtilService utilService;
 

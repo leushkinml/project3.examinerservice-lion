@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class JavaQuestionRepositoryTest {
 
     private JavaQuestionRepository out;
@@ -39,15 +37,11 @@ class JavaQuestionRepositoryTest {
         Assertions.assertEquals(out.getAll().size(), 3);
     }
 
-
     @Test
     void addNullQuestion() {
         Assertions.assertThrows(BadRequestException.class, () -> {
             out.add(null);
         });
-//        Assertions.assertThatExceptionOfType(BadRequestException.class).isThrownBy(() -> {
-//            out.add(null);
-//        });
     }
 
     @Test
@@ -65,9 +59,6 @@ class JavaQuestionRepositoryTest {
         Assertions.assertThrows(NotFoundQuestionException.class, () -> {
             out.remove(null);
         });
-//        Assertions.assertThatExceptionOfType(NotFoundQuestionException.class).isThrownBy(() -> {
-//            out.remove(null);
-//        });
     }
 
     @Test

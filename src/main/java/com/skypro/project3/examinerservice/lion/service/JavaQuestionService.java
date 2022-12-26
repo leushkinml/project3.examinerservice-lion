@@ -17,8 +17,8 @@ import java.util.Collection;
 @Service
 public class JavaQuestionService implements QuestionService {
 
-    private final QuestionRepository questionRepository;
-    // Здесь вместо поля Репозиторий может сразу быть Мапа или список, которые хранят вопросы.
+    private final QuestionRepository questionRepository;     // Здесь вместо поля Репозиторий может сразу быть Мапа или список, которые хранят вопросы.
+
 
     private final UtilService utilService;
 
@@ -40,9 +40,6 @@ public class JavaQuestionService implements QuestionService {
         }
 
         return questionRepository.add(new Question(question, answer));
-//        Question questionTmpr = new Question(question, answer);
-//        this.questions.add(questionTmpr);
-//        return questionTmpr;
     }
 
     @Override
@@ -55,9 +52,6 @@ public class JavaQuestionService implements QuestionService {
             throw new BadRequestException("Заполните поля 'Вопрос' и 'Ответ'.");
         }
         return questionRepository.add(question);
-//        Question questionTmpr = new Question(question.getQuestion(), question.getAnswer());
-//        this.questions.add(questionTmpr);
-//        return questionTmpr;
     }
 
     @Override

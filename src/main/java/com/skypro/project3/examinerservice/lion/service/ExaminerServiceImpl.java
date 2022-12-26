@@ -29,13 +29,7 @@ public class ExaminerServiceImpl implements ExaminerService {
         this.questionServices = questionServices;
         this.utilService = utilService;
     }
-
 //     Random random;
-//     private final UtilService utilService;
-//    public ExaminerServiceImpl(List<QuestionService> questionServices, UtilService utilService) {
-//        this.questionServices = questionServices;
-//        this.utilService = utilService;
-//    }
 
     private int calculateAmountOfQuestions() {
         return questionServices.stream()
@@ -58,47 +52,3 @@ public class ExaminerServiceImpl implements ExaminerService {
         return result;
       }
 }
-
-
-//@Override
-//    public Collection<Question> getQuestions(int amount) {
-//        if (amount <= 0 || calculateAmountOfQuestions() < amount) {
-//            throw new BadRequestException("Некорректное количество " + amount);
-//        }
-//        Set<Question> result = new HashSet<>();
-//        while (result.size() < amount) {
-////            var serviceNumber = UtilService.getRandomInt(questionServices.size()); // Метод сам выберет, из какого
-////            // сервиса получать вопросы. Мы этого не знаем. Решиться рандомно
-////            var questionService = questionServices.get(serviceNumber);
-//            result.add(utilService.getRandomQuestion());
-//        }
-//        return result;
-//    }
-//    private final List<QuestionService> questionServices;
-//    // List используется, чтоы получать вопросы из обоих сервисов в методе getQuestions ниже
-//    // Метод сам выберет, из какого сервиса получать вопросы. Здесь @Qualifier не нужен
-//    private final UtilService utilService;
-//    // Random random;
-//    public ExaminerServiceImpl(List<QuestionService> questionServices, UtilService utilService) {
-//        this.questionServices = questionServices;
-//        this.utilService = utilService;
-//    }
-//    @Override
-//    public Collection<Question> getQuestions(int amount) {
-//        if (amount <= 0 || calculateAmountOfQuestions() < amount) {
-//            throw new BadRequestException("Некорректное количество " + amount);
-//        }
-//        Set<Question> result = new HashSet<>();
-//        while (result.size() < amount) {
-//            var serviceNumber = UtilService.getRandomInt(questionServices.size()); // Метод сам выберет, из какого
-//            // сервиса получать вопросы. Мы этого не знаем. Решиться рандомно
-//            var questionService = questionServices.get(serviceNumber);
-//            result.add(questionService.getRandomQuestion());
-//        }
-//        return result;
-//    }
-//    private int calculateAmountOfQuestions() {
-//        return questionServices.stream()
-//                .mapToInt(s -> s.getAll().size())
-//                .sum();
-//    }

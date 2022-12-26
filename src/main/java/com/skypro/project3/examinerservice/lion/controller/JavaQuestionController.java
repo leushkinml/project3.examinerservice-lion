@@ -46,18 +46,3 @@ public class JavaQuestionController {
 //    Добавить: “/exam/java/add?question=QuestionText&answer=QuestionAnswer”
 //    Удалить: “/exam/java/remove?question=QuestionText&answer=QuestionAnswer”
 //    Получить все вопросы: “/exam/java”
-
-//    @GetMapping
-//    public Collection<Question> getQuestions() {
-//
-//        return questionService.getAll();
-//    }
-//    @GetMapping("/add")
-//    public Question addQuestion(@RequestParam("question") String question, @RequestParam("answer") String answer) {
-//        return questionService.add(question, answer);
-//    }
-//    @GetMapping("/remove")
-//    public Question removeQuestion(@RequestParam("question") String question, @RequestParam("answer") String answer) {
-//        return questionService.remove(new Question(question, answer));
-//    }
-
