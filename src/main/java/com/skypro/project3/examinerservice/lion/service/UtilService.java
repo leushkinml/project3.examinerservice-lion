@@ -16,15 +16,10 @@ public class UtilService {
         UtilService.random = random;
     }
 
+    public int getRandomInt(int bound) {
 
-    public static int getRandomInt(int bound) {
         return random.nextInt(bound);
     }
-//    public static int getRandomInt(int bound) {
-//        int randomInt;
-//        return randomInt = random.nextInt(bound);
-//    }
-
 
     public Question getRandomQuestion(Collection<Question> questions) {
         int questionNum = getRandomInt(questions.size());
@@ -38,31 +33,3 @@ public class UtilService {
         return null;
     }
 }
-
-
-//@Service
-//public class UtilService {
-//
-//    private final List<QuestionRepository> questionRepositories;;
-//
-//    public UtilService(List<QuestionRepository> questionRepositories) {
-//        this.questionRepositories = questionRepositories;
-//    }
-//
-//    public static int getRandomInt(int tmp) {
-//        int randomInt;
-//        return randomInt = new Random().nextInt(tmp);
-//    }
-//
-//    public Question getRandomQuestion(Collection<Question> all) {
-//        int number = getRandomInt(all.size());
-//        var randomQuestion = questionRepositories.get(number);
-//        return (Question) randomQuestion;
-//    }
-//}
-
-//    private final List<QuestionService> questionServices;;
-//
-//    public UtilService(List<QuestionService> questionServices) {
-//        this.questionServices = questionServices;
-//

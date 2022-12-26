@@ -49,9 +49,7 @@ class ExaminerServiceImplTest {
 
         Mockito.verify(questionService, Mockito.times(1)).getAll();
         Mockito.verify(questionService, Mockito.times(1)).getRandomQuestion();
-        Mockito.verify(utilService, Mockito.times(1));
-        UtilService.getRandomInt(anyInt());
-        //Mockito.verify(utilService, Mockito.times(1)).getRandomInt(anyInt());
+        Mockito.verify(utilService, Mockito.times(1)).getRandomInt(anyInt());
     }
 
     @Test
@@ -63,8 +61,6 @@ class ExaminerServiceImplTest {
 
         Mockito.verify(questionService, Mockito.times(1)).getAll();
         Mockito.verify(questionService, Mockito.never()).getRandomQuestion();
-        Mockito.verify(utilService, Mockito.never());
-        UtilService.getRandomInt(anyInt());
-        //Mockito.verify(utilService, Mockito.never()).getRandomInt(anyInt());
+        Mockito.verify(utilService, Mockito.never()).getRandomInt(anyInt());
     }
 }

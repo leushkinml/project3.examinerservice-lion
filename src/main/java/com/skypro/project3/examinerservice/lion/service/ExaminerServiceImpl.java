@@ -44,7 +44,7 @@ public class ExaminerServiceImpl implements ExaminerService {
         }
         Set<Question> result = new HashSet<>();
         while (result.size() < amount) {
-            var serviceNumber = UtilService.getRandomInt(questionServices.size()); // Метод сам выберет, из какого
+            var serviceNumber = utilService.getRandomInt(questionServices.size()); // Метод сам выберет, из какого
             // сервиса получать вопросы. Мы этого не знаем. Решиться рандомно
             var questionService = questionServices.get(serviceNumber);
             result.add(questionService.getRandomQuestion());
